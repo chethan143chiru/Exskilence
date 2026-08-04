@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Student Information Card Generator</title>
+</head>
+<body>
+    <div class="main-container">
+        <h1>Student Information Card Generator</h1>
+        <form id="container-form">
+            <label for="studentName">Student Name</label>
+            <input  type="text" id="studentName" placeholder="Enter student name">
+
+            <label for="studentId">Student ID</label>
+            <input type="text" id="studentId" placeholder="Enter student ID">
+
+            <label for="branch">Branch Name</label>
+            <input type="text" id="branch" placeholder="Enter Branch">
+
+            <button type="submit"> Generate Card</button>
+        </form>
+        <p class="error" id="errorMsg"></p>
+        <div id="studentCard"></div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

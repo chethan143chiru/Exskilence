@@ -1,0 +1,61 @@
+body{
+    background-color: rgba(128, 128, 128, 0.532);
+    font-family: sans-serif,Arial,Helvetica;
+
+}
+
+.main-container{
+    background-color: white;
+    max-width: 400px;
+    margin: 20px auto;
+    padding:20px 15px;
+    border-radius: 10px;
+
+
+}
+
+label{
+    display:block;
+    margin-bottom: 5px;
+}
+
+input{
+    width:100%;
+    margin-bottom: 5px;
+    padding: 7px 0px;
+    border-radius: 4px;
+    border: 1px rgba(128, 128, 128, 0.247) solid;
+    padding-left: 8px;
+
+}
+
+.main-container h1{
+    font-size: 25px;
+}
+
+button{
+    width:100%;
+    text-align: center;
+    padding: 7px 0px;
+    border-radius: 5px;
+    background-color: blue;
+    color: white;
+    border : 1px blue solid;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: rgba(0, 0, 255, 0.57);
+}
+
+.error{
+    color:red;
+    font-size: 13px;
+}
+#studentCard{
+    padding: 10px;
+    border: 1px solid blue;
+    background-color: lightblue;
+    border-radius: 5px;
+}
