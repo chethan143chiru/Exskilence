@@ -1,131 +1,140 @@
+// Array of quiz questions
 let questions = [
-  {
-    question: "What does HTML stand for?",
-    options: [
-      "Hyper Text Markup Language",
-      "High Tech Modern Language",
-      "Home Tool Markup Language",
-      "Hyperlinks Text Mark Language"
-    ],
-    answer: 0
-  },
-  {
-    question: "What does CSS stand for?",
-    options: [
-      "Creative Style Sheets",
-      "Cascading Style Sheets",
-      "Computer Style Sheets",
-      "Colorful Style Sheets"
-    ],
-    answer: 1
-  },
-  {
-    question: "Which language is used to add interactivity to a webpage?",
-    options: ["HTML", "CSS", "JavaScript", "Python"],
-    answer: 2
-  },
-  {
-    question: "Which HTML tag is used for the largest heading?",
-    options: [
-        "<h6>",
-        "<head>",
-        "<h1>",
-        "<title>"
-    ],
-    answer: 2
-},
-  {
-    question: "Which attribute is used in an anchor tag for links?",
-    options: ["src", "link", "href", "url"],
-    answer: 2
-  }
+    {
+        question: "What does HTML stand for?",
+        options: [
+            "Hyper Text Markup Language",
+            "High Tech Modern Language",
+            "Home Tool Markup Language",
+            "Hyperlinks Text Markup Language"
+        ],
+        answer: 0
+    },
+    {
+        question: "What does CSS stand for?",
+        options: [
+            "Creative Style Sheets",
+            "Cascading Style Sheets",
+            "Computer Style Sheets",
+            "Colorful Style Sheets"
+        ],
+        answer: 1
+    },
+    {
+        question: "Which language is used to add interactivity to a webpage?",
+        options: [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Python"
+        ],
+        answer: 2
+    },
+    {
+        question: "Which HTML tag is used for the largest heading?",
+        options: [
+            "<h6>",
+            "<head>",
+            "<h1>",
+            "<title>"
+        ],
+        answer: 2
+    },
+    {
+        question: "Which attribute is used in an anchor tag for links?",
+        options: [
+            "src",
+            "link",
+            "href",
+            "url"
+        ],
+        answer: 2
+    }
 ];
 
+// Selecting HTML elements
+let quizContainer = document.getElementById("quizContainer");
+let quizForm = document.getElementById("quizForm");
+let errorMessage = document.getElementById("errorMessage");
+let scoreContainer = document.getElementById("scoreContainer");
 
+// Display Questions
+questions.forEach(function (item, index) {
 
-const quizContainer = document.getElementById("quizContainer");
-const quizForm = document.getElementById("quizForm");
-const errorMessage = document.getElementById("errorMessage");
-const scoreContainer = document.getElementById("scoreContainer");
+    let questionDiv = document.createElement("div");
+    questionDiv.classList.add("question");
 
-function loadQuiz() {
+    let questionTitle = document.createElement("h3");
+    questionTitle.textContent = (index + 1) + ". " + item.question;
 
-    questions.forEach((q, index) => {
+    questionDiv.appendChild(questionTitle);
 
-        const div = document.createElement("div");
+    item.options.forEach(function (option, optionIndex) {
 
-        div.classList.add("question");
+        let label = document.createElement("label");
 
-        let html = `<h3>${index + 1}. ${q.question}</h3>`;
+        let radio = document.createElement("input");
 
-        q.options.forEach((option, i) => {
+        radio.type = "radio";
+        radio.name = "q" + index;
+        radio.value = optionIndex;
 
-            html += `
-                <label>
-                    <input
-                        type="radio"
-                        name="question${index}"
-                        value="${i}">
-                    ${option}
-                </label>
-            `;
+        label.appendChild(radio);
 
-        });
+        label.append(" " + option);
 
-        div.innerHTML = html;
-
-        quizContainer.appendChild(div);
+        questionDiv.appendChild(label);
 
     });
 
-}
+    quizContainer.appendChild(questionDiv);
 
-loadQuiz();
+});
 
-quizForm.addEventListener("submit", function(e){
+// Submit Event
+quizForm.addEventListener("submit", function (event) {
 
-    e.preventDefault();
+    event.preventDefault();
 
-    errorMessage.textContent="";
+    let score = 0;
 
-    scoreContainer.innerHTML="";
+    let allAnswered = true;
 
-    let score=0;
+    errorMessage.textContent = "";
 
-    let answered=true;
+    scoreContainer.textContent = "";
 
-    questions.forEach((q,index)=>{
+    for (let i = 0; i < questions.length; i++) {
 
-        const selected=document.querySelector(
-            `input[name="question${index}"]:checked`
+        let selectedOption = document.querySelector(
+            'input[name="q' + i + '"]:checked'
         );
 
-        if(!selected){
+        if (selectedOption == null) {
 
-            answered=false;
+            allAnswered = false;
+            break;
 
         }
 
-        else if(Number(selected.value)===q.answer){
+        if (Number(selectedOption.value) === questions[i].answer) {
 
             score++;
 
         }
 
-    });
+    }
 
-    if(!answered){
+    if (!allAnswered) {
 
-        errorMessage.textContent="Please answer all questions before submitting.";
+        errorMessage.textContent =
+            "Please answer all questions before submitting.";
 
         return;
 
     }
 
-    scoreContainer.innerHTML=`
-        <div class="score-box">
-            You scored ${score} out of ${questions.length}
-        </div>
-    `;
+    scoreContainer.textContent =
+        "You scored " + score + " out of " + questions.length;
 
 });
