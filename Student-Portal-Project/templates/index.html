@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — Student Portal{% endblock %}
+{% block content %}
+
+<div class="toolbar">
+  <input type="text" id="searchInput" placeholder="Search by name...">
+  <select id="branchFilter">
+    <option value="">All branches</option>
+    <option value="CSE">CSE</option>
+    <option value="ISE">ISE</option>
+    <option value="ECE">ECE</option>
+  </select>
+  <button id="sortBtn" type="button">Sort by Total</button>
+  <a class="btn" href="{{ url_for('add_student') }}">+ Add Student</a>
+</div>
+
+<div id="cardContainer" class="card-grid">
+  <!-- Week 2 Day 1 onward: JS renders one card per student here. -->
+</div>
+
+<p id="emptyState" class="empty-state" hidden>No students match your search.</p>
+
+<script>
+  // This page's data, ready for app.js to use — no fetch/AJAX needed.
+  const students = {{ students|tojson }};
+</script>
+
+{% endblock %}

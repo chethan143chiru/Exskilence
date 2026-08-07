@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %}
+Add Student — Student Portal
+{% endblock %}
+
+{% block content %}
+
+<h2>Add a Student</h2>
+
+<form
+    id="addStudentForm"
+    method="POST"
+    action="{{ url_for('add_student') }}"
+>
+
+    <!-- Student Name -->
+    <label for="nameInput">
+        Name
+    </label>
+
+    <input
+        type="text"
+        name="name"
+        id="nameInput"
+        placeholder="Enter student name"
+        required
+    >
+
+
+    <!-- Branch -->
+    <label for="branchInput">
+        Branch
+    </label>
+
+    <input
+        type="text"
+        name="branch"
+        id="branchInput"
+        placeholder="Enter branch"
+        required
+    >
+
+
+    <!-- Semester -->
+    <label for="semesterInput">
+        Semester
+    </label>
+
+    <input
+        type="number"
+        name="semester"
+        id="semesterInput"
+        placeholder="Enter semester"
+        min="1"
+        max="8"
+        required
+    >
+
+
+    <!-- Email -->
+    <label for="emailInput">
+        Email (optional)
+    </label>
+
+    <input
+        type="email"
+        name="email"
+        id="emailInput"
+        placeholder="Enter email"
+    >
+
+
+    <!-- Error Message -->
+    <p
+        id="formError"
+        class="form-error"
+        hidden
+    ></p>
+
+
+    <!-- Save Button -->
+    <button type="submit">
+        Save Student
+    </button>
+
+
+    <!-- Cancel Button -->
+    <a
+        class="btn btn-secondary"
+        href="{{ url_for('index') }}"
+    >
+        Cancel
+    </a>
+
+</form>
+
+{% endblock %}

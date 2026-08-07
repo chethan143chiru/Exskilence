@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}{{ student.name }} — Student Portal{% endblock %}
+{% block content %}
+
+<a href="{{ url_for('index') }}">&larr; Back to dashboard</a>
+
+<h2>{{ student.name }}</h2>
+<p>{{ student.branch }} &middot; Semester {{ student.semester }}</p>
+
+<table id="marksTable">
+  <thead>
+    <tr><th>Subject</th><th>Score</th></tr>
+  </thead>
+  <tbody>
+    {% for subject, score in student.marks.items() %}
+    <tr><td>{{ subject }}</td><td>{{ score }}</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<p class="total-line">Total: <span id="totalMarks">--</span></p>
+
+<h3>Add a Mark</h3>
+<form method="POST" action="{{ url_for('add_mark', student_id=student.id) }}">
+  <label>Subject
+    <input type="text" name="subject" required>
+  </label>
+  <label>Score
+    <input type="number" name="score" min="0" max="100" required>
+  </label>
+  <button type="submit">Add Mark</button>
+</form>
+
+<form method="POST" action="{{ url_for('delete_student', student_id=student.id) }}"
+      onsubmit="return confirm('Delete this student and all their marks?');">
+  <button type="submit" class="btn-danger">Delete Student</button>
+</form>
+
+<script>
+  // This page's data, ready for app.js to use — no fetch/AJAX needed.
+  const studentMarks = {{ student.marks|tojson }};
+</script>
+
+{% endblock %}

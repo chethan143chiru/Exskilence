@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <title>Student Details</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+  <h1>Student Details</h1>
+
+  <button onclick="load('roll_no')">Sort by Roll No</button>
+
+  <button onclick="load('name')">Sort by Name</button>
+
+  <button onclick="load('branch')">Sort by Branch</button>
+
+  <button onclick="load('semester')">Sort by Semester</button>
+
+  <button onclick="load('cgpa')">Sort by CGPA</button>
+
+  <br><br>
+
+  <table id="data">
+
+    <tr>
+
+      <th>Roll No</th>
+      <th>Name</th>
+      <th>Branch</th>
+      <th>Semester</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>CGPA</th>
+
+    </tr>
+
+  </table>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
