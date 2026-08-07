@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DOM Exercises (Week 2 - Day 1)</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        hr {
+            margin: 25px 0;
+        }
+
+        .highlight {
+            background: rgb(158, 64, 114);
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        img {
+            border: 2px solid black;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>DOM Exercises (Week 2 - Day 1)</h1>
+
+    <hr>
+
+    <h2>Exercise 1 - Finding Elements</h2>
+
+    <div id="intro">
+        Welcome to Day 1
+    </div>
+
+    <p class="note">First note</p>
+
+    <p class="note">Second note</p>
+
+    <p class="note">Third note</p>
+
+    <hr>
+
+    <h2>Exercise 2 - Six Selectors</h2>
+
+    <ul id="menu">
+
+        <li>Home</li>
+
+        <li>About</li>
+
+        <li id="contact-link">Contact</li>
+
+    </ul>
+
+    <p
+        id="tagline"
+        class="highlight">
+
+        Learn by building.
+
+    </p>
+
+    <form>
+
+        <input
+            type="email"
+            placeholder="you@example.com"
+        >
+
+        <div class="actions">
+
+            <button type="submit">
+
+                Send
+
+            </button>
+
+        </div>
+
+    </form>
+
+    <hr>
+
+    <h2>Exercise 3 - textContent & innerHTML</h2>
+
+    <h3 id="title">
+
+        Old Title
+
+    </h3>
+
+    <div id="fruit-list"></div>
+
+    <hr>
+
+    <h2>Exercise 4 - Attributes & classList</h2>
+
+    <p id="note">
+
+        Click the buttons below.
+
+    </p>
+
+    <img
+        id="avatar"
+        src="https://png.pngtree.com/thumb_back/fh260/background/20240716/pngtree-d-hindu-god-radha-krishna-in-love-painting-heavenly-affection-of-image_16007748.jpg"
+        alt="Radha Krishna"
+        width="200"
+    >
+
+    <br><br>
+
+    <button id="highlightBtn">
+
+        Toggle Highlight
+
+    </button>
+
+    <button id="swapBtn">
+
+        Swap Avatar
+
+    </button>
+
+    <hr>
+
+    <h2>Exercise 5 & 6 - Build & Prepend List</h2>
+
+    <ul id="taskList"></ul>
+
+    <hr>
+
+    <h2>Exercise 7 - Traverse the Tree</h2>
+
+    <div id="section">
+
+        <p>First</p>
+
+        <p id="middle">Middle</p>
+
+        <p>Last</p>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Events & Delegation Exercises</title>
+    <style>
+        .done {
+            text-decoration: line-through;
+            color: gray;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+        section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Click Basics -->
+    <section>
+        <h3>1. Click Basics</h3>
+        <button id="greetBtn">Say Hello</button>
+        <p id="output"></p>
+    </section>
+
+    <!-- 2. e.target Inspector -->
+    <section>
+        <h3>2. e.target Inspector</h3>
+        <div id="palette">
+            <button>Red</button>
+            <button>Green</button>
+            <button>Blue</button>
+        </div>
+        <p id="chosen">Chosen: none</p>
+    </section>
+
+    <!-- 3. Hover Effect -->
+    <section>
+        <h3>3. Hover Effect</h3>
+        <div id="preview" style="padding: 10px; background: #eee; display: inline-block;">Hover over me</div>
+    </section>
+
+    <!-- 4. Change Listener -->
+    <section>
+        <h3>4. Change Listener</h3>
+        <select id="branchSelect">
+            <option value="">Choose a branch</option>
+            <option value="CSE">CSE</option>
+            <option value="ECE">ECE</option>
+            <option value="ME">ME</option>
+        </select>
+        <p id="branchOutput"></p>
+    </section>
+
+    <!-- 5. Submit Without Reload -->
+    <section>
+        <h3>5. Submit Without Reload</h3>
+        <form id="quickForm">
+            <input type="text" id="messageInput" placeholder="Type a message">
+            <button type="submit">Send</button>
+        </form>
+        <p id="sentMessage"></p>
+    </section>
+
+    <!-- 6. Live Validation -->
+    <section>
+        <h3>6. Live Validation</h3>
+        <input type="text" id="nameField" placeholder="Your name">
+        <p id="nameError" class="error"></p>
+    </section>
+
+    <!-- 7 & 8. Delegated List & Survives New Items -->
+    <section>
+        <h3>7 & 8. Todo List with Delegation</h3>
+        <input type="text" id="todoInput" placeholder="New task">
+        <button id="addTodoBtn">Add</button>
+        <ul id="todoList">
+            <li>Buy milk</li>
+            <li>Walk the dog</li>
+            <li>Read a book</li>
+        </ul>
+    </section>
+
+    <!-- Challenge — Mini Feedback Form -->
+    <section>
+        <h3>Challenge — Mini Feedback Form</h3>
+        <form id="feedbackForm">
+            <label for="fbName">Name:</label>
+            <input type="text" id="fbName">
+            <span id="nameErr" class="error"></span>
+            <br><br>
+            <label for="fbMessage">Message:</label>
+            <input type="text" id="fbMessage">
+            <span id="msgErr" class="error"></span>
+            <br><br>
+            <button type="submit">Submit</button>
+        </form>
+        <ul id="feedbackList"></ul>
+        <p>Feedback Count: <span id="count">0</span></p>
+    </section>   
+
+    <!-- Link Script with defer -->
+    <script src="script.js" defer></script>
+</body>
+</html>
